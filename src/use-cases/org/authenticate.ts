@@ -1,4 +1,4 @@
-import { OrgsRepository } from '@/repositories/orgs.repository';
+import type { OrgsRepository } from '@/repositories/orgs.repository';
 import { compare } from 'bcryptjs';
 import { InvalidCredentialError } from '../errors/invalid-credentials-error';
 
@@ -16,7 +16,7 @@ export class AuthenticateOrgUseCase {
 		if (!org) {
 			throw new InvalidCredentialError();
 		}
-          console.log(org)
+		console.log(org);
 		const doesPasswordMatches = await compare(password, org.password);
 
 		if (!doesPasswordMatches) {

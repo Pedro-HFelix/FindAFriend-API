@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { InMemoryOrgsRepository } from '@/repositories/in-memory/in-memory-orgs-repository';
 import { FindOrgByEmailUseCase } from './find-org-by-email';
-import { randomUUID } from 'crypto';
+import { randomUUID } from 'node:crypto';
 import { Decimal } from '@prisma/client/runtime/library';
 
 let sut: FindOrgByEmailUseCase;
@@ -34,7 +34,7 @@ describe('Find Org By Email Use Case', async () => {
 
 		const { org } = await sut.execute('john.doe@example.com');
 
-		expect(org!.id).toEqual(expect.any(String));
+		expect(org?.id).toEqual(expect.any(String));
 	});
 
 	it('should not be able to find org with invalid email', async () => {

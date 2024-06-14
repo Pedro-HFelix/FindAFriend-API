@@ -1,4 +1,4 @@
-import { OrgsRepository } from '@/repositories/orgs.repository';
+import type { OrgsRepository } from '@/repositories/orgs.repository';
 import { hash } from 'bcryptjs';
 import { OrgAlreadyExists } from '../errors/org-already-exists-error';
 

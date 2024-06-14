@@ -1,4 +1,4 @@
-import { OrgsRepository } from '@/repositories/orgs.repository';
+import type { OrgsRepository } from '@/repositories/orgs.repository';
 
 export class FindOrgByEmailUseCase {
 	constructor(private orgRepository: OrgsRepository) {}

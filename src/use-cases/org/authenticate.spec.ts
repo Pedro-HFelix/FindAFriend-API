@@ -2,7 +2,7 @@ import { hash } from 'bcryptjs';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { InMemoryOrgsRepository } from '@/repositories/in-memory/in-memory-orgs-repository';
 import { AuthenticateOrgUseCase } from './authenticate';
-import { randomUUID } from 'crypto';
+import { randomUUID } from 'node:crypto';
 import { Decimal } from '@prisma/client/runtime/library';
 import { InvalidCredentialError } from '../errors/invalid-credentials-error';
 
@@ -37,7 +37,7 @@ describe('Authenticate Org Use Case', async () => {
 	});
 
 	it('should be able to authenticate a org', async () => {
-          const { org } = await sut.execute({
+		const { org } = await sut.execute({
 			email: email,
 			password: password,
 		});
