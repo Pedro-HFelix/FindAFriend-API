@@ -16,7 +16,7 @@ export class AuthenticateOrgUseCase {
 		if (!org) {
 			throw new InvalidCredentialError();
 		}
-		console.log(org);
+
 		const doesPasswordMatches = await compare(password, org.password);
 
 		if (!doesPasswordMatches) {

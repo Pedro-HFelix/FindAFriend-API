@@ -37,10 +37,10 @@ model Pet {
   environment           String
   energy_level          String
   level_independence    String
-  adoption_requirements String[]
   org_id                String
   created_at            DateTime  @default(now())
   updated_at            DateTime  @updatedAt
+  adoption_requirements String[]
   Picture               Picture[]
   org                   Org       @relation(fields: [org_id], references: [id])
 

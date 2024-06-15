@@ -1,5 +1,5 @@
-import { Org, Prisma } from '@prisma/client';
-import { OrgsRepository } from '../orgs.repository';
+import { type Org, Prisma } from '@prisma/client';
+import type { OrgsRepository } from '../orgs.repository';
 import { randomUUID } from 'node:crypto';
 
 export class InMemoryOrgsRepository implements OrgsRepository {
@@ -23,7 +23,6 @@ export class InMemoryOrgsRepository implements OrgsRepository {
 
 			latitude: new Prisma.Decimal(data.latitude.toString()),
 			longitude: new Prisma.Decimal(data.longitude.toString()),
-
 			created_at: new Date(),
 			updated_at: new Date(),
 		};
@@ -33,7 +32,16 @@ export class InMemoryOrgsRepository implements OrgsRepository {
 	}
 
 	async findByEmail(email: string) {
-		const org = await this.items.find((item) => item.email == email);
+		const org = this.items.find((item) => item.email === email);
+
+		if (!org) {
+			return null;
+		}
+
+		return org;
+	}
+	async findById(id: string) {
+		const org = this.items.find((item) => item.id === id);
 
 		if (!org) {
 			return null;
