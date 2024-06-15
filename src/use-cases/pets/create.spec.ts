@@ -12,8 +12,8 @@ let orgsRepository: InMemoryOrgsRepository;
 
 describe('Create pet Use Case', async () => {
 	beforeEach(async () => {
-		petsRepository = new InMemoryPetsRepository();
 		orgsRepository = new InMemoryOrgsRepository();
+		petsRepository = new InMemoryPetsRepository(orgsRepository);
 		sut = new CreatePetUseCase(petsRepository, orgsRepository);
 	});
 
@@ -49,7 +49,7 @@ describe('Create pet Use Case', async () => {
 			adoption_requirements: ['home visit', 'vet reference'],
 			pictures: ['img', 'img1', 'img2'],
 		});
-		console.log(pet);
+
 		expect(pet.org_id).toEqual(id);
 		expect(pet.adoption_requirements).toEqual(['home visit', 'vet reference']);
 	});
@@ -103,6 +103,6 @@ describe('Create pet Use Case', async () => {
 				level_independence: 'low',
 				org_id: id,
 			}),
-		).rejects.toBeInstanceOf(Error);
+		).rejects.toBeInstanceOf(OrgNotFound);
 	});
 });
