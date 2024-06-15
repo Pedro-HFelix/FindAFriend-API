@@ -47,13 +47,14 @@ describe('Create pet Use Case', async () => {
 			level_independence: 'low',
 			org_id: id,
 			adoption_requirements: ['home visit', 'vet reference'],
+			pictures: ['img', 'img1', 'img2'],
 		});
-
+		console.log(pet);
 		expect(pet.org_id).toEqual(id);
 		expect(pet.adoption_requirements).toEqual(['home visit', 'vet reference']);
 	});
 
-	it('should be able to create a pet without adoption requirements', async () => {
+	it('should be able to create a pet without adoption requirements and pictures', async () => {
 		const id = randomUUID();
 		orgsRepository.items.push({
 			id: id,

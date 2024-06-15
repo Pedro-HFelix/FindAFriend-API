@@ -1,7 +1,6 @@
 import type { OrgsRepository } from '@/repositories/orgs.repository';
 import type { PetsRepository } from '@/repositories/pets.repository';
 import { OrgNotFound } from '../errors/org-not-found';
-import { InvalidCredentialError } from '../errors/invalid-credentials-error';
 
 interface CreatePetUseCaseRequest {
 	name: string;
@@ -13,6 +12,7 @@ interface CreatePetUseCaseRequest {
 	level_independence: string;
 	adoption_requirements?: string[];
 	org_id: string;
+	pictures?: string[];
 }
 
 export class CreatePetUseCase {
@@ -31,6 +31,7 @@ export class CreatePetUseCase {
 		level_independence,
 		adoption_requirements,
 		org_id,
+		pictures,
 	}: CreatePetUseCaseRequest) {
 		const org = await this.orgsRepository.findById(org_id);
 		if (!org) throw new OrgNotFound();
@@ -44,6 +45,7 @@ export class CreatePetUseCase {
 			energy_level,
 			level_independence,
 			adoption_requirements,
+			pictures,
 			org_id,
 		});
 

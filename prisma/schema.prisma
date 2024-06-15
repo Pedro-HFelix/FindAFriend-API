@@ -29,7 +29,7 @@ model Org {
 }
 
 model Pet {
-  id                    String    @id @default(uuid())
+  id                    String   @id @default(uuid())
   name                  String
   description           String
   age                   String
@@ -38,18 +38,11 @@ model Pet {
   energy_level          String
   level_independence    String
   org_id                String
-  created_at            DateTime  @default(now())
-  updated_at            DateTime  @updatedAt
+  created_at            DateTime @default(now())
+  updated_at            DateTime @updatedAt
   adoption_requirements String[]
-  Picture               Picture[]
-  org                   Org       @relation(fields: [org_id], references: [id])
+  pictures              String[]
+  org                   Org      @relation(fields: [org_id], references: [id])
 
   @@map("pets")
-}
-
-model Picture {
-  id     Int    @id @default(autoincrement())
-  url    String
-  pet_id String
-  pet    Pet    @relation(fields: [pet_id], references: [id])
 }
