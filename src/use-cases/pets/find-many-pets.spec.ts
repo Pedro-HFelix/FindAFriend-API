@@ -1,19 +1,19 @@
 import { InMemoryOrgsRepository } from '@/repositories/in-memory/in-memory-orgs-repository';
 import { InMemoryPetsRepository } from '@/repositories/in-memory/in-memory-pets-repository';
 import { beforeEach, describe, expect, it } from 'vitest';
-import { FindAllPetUseCase } from './find-all-pet';
+import { FindManyPetUseCase } from './find-many-pets';
 import { makeFakeRepositoryPet } from '../utils/make-fake-repository-pet';
 import { makeFakeRepositoryOrgs } from '../utils/make-fake-repository-org';
 
 describe('Search Pets Use Case', () => {
 	let orgsRepository: InMemoryOrgsRepository;
 	let petsRepository: InMemoryPetsRepository;
-	let sut: FindAllPetUseCase;
+	let sut: FindManyPetUseCase;
 
 	beforeEach(async () => {
 		orgsRepository = new InMemoryOrgsRepository();
 		petsRepository = new InMemoryPetsRepository(orgsRepository);
-		sut = new FindAllPetUseCase(petsRepository);
+		sut = new FindManyPetUseCase(petsRepository);
 
 		const org = await makeFakeRepositoryOrgs();
 		orgsRepository.items.push(org);

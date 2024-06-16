@@ -32,5 +32,6 @@ export async function createAndAuthenticateOrg(app: FastifyInstance) {
 
 	return {
 		token,
+		org,
 	};
 }

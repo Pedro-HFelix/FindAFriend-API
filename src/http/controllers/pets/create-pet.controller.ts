@@ -55,6 +55,6 @@ export async function createPetController(
 			return reply.status(401).send({ message: error.message });
 		}
 
-		throw error;
+		return reply.status(500).send({ message: 'Internal server error' });
 	}
 }

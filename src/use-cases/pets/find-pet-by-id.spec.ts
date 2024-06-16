@@ -5,6 +5,7 @@ import { makeFakeRepositoryPet } from '../utils/make-fake-repository-pet';
 import { makeFakeRepositoryOrgs } from '../utils/make-fake-repository-org';
 import { findPetByIdUseCase } from './find-pet-by-id';
 import { randomUUID } from 'node:crypto';
+import { PetNotFound } from '../errors/pet-not-found';
 
 describe('Search Pets Use Case', () => {
 	let orgsRepository: InMemoryOrgsRepository;
@@ -36,8 +37,8 @@ describe('Search Pets Use Case', () => {
 	});
 
 	it('should not be able to search pets by level_independence', async () => {
-		const { pet } = await sut.execute(randomUUID());
-
-		expect(pet).toBeNull();
+		await expect(() => sut.execute(randomUUID())).rejects.toBeInstanceOf(
+			PetNotFound,
+		);
 	});
 });

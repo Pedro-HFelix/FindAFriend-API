@@ -3,7 +3,7 @@ import type {
 	PetsRepository,
 } from '@/repositories/pets.repository';
 
-export class FindAllPetUseCase {
+export class FindManyPetUseCase {
 	constructor(private petsRepository: PetsRepository) {}
 
 	async execute({

@@ -5,7 +5,7 @@ import { createAndAuthenticateOrg } from '@/use-cases/utils/test/create-and-auth
 import { makeFakePet } from '@/use-cases/utils/test/make-fake-pet';
 
 let jwtToken: string;
-describe('Create Pet (E2E)', () => {
+describe('Create Pet', () => {
 	beforeAll(async () => {
 		await app.ready();
 		const { token } = await createAndAuthenticateOrg(app);
@@ -18,7 +18,7 @@ describe('Create Pet (E2E)', () => {
 
 	it('should be able to create a new pet', async () => {
 		const response = await request(app.server)
-			.post('/pet/create')
+			.post('/org/pet/create')
 			.set('Authorization', `Bearer ${jwtToken}`)
 			.send(makeFakePet());
 
@@ -27,7 +27,7 @@ describe('Create Pet (E2E)', () => {
 
 	it('should not be able to create a new pet without data', async () => {
 		const response = await request(app.server)
-			.post('/pet/create')
+			.post('/org/pet/create')
 			.set('Authorization', `Bearer ${jwtToken}`)
 			.send();
 
@@ -36,7 +36,7 @@ describe('Create Pet (E2E)', () => {
 
 	it('should not be able to create a new pet with invalid jtw', async () => {
 		const response = await request(app.server)
-			.post('/pet/create')
+			.post('/org/pet/create')
 			.set('Authorization', `Bearer ${'1234'}`)
 			.send(makeFakePet());
 

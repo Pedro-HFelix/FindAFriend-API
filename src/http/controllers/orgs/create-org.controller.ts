@@ -61,6 +61,6 @@ export async function createOrgController(
 			return reply.status(400).send({ message: error.message });
 		}
 
-		throw error;
+		return reply.status(500).send({ message: 'Internal server error' });
 	}
 }

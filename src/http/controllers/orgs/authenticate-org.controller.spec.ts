@@ -5,7 +5,7 @@ import { createOrg } from '@/use-cases/utils/test/create-org';
 import type { Org } from '@prisma/client';
 
 let org: Org;
-describe('Authenticate Org (E2E)', () => {
+describe('Authenticate Org', () => {
 	beforeAll(async () => {
 		await app.ready();
 		org = await createOrg();
