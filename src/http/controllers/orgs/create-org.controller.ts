@@ -18,8 +18,8 @@ export async function createOrgController(
 		city: z.string(),
 		neighborhood: z.string(),
 		street: z.string(),
-		latitude: z.number(),
-		longitude: z.number(),
+		latitude: z.coerce.number(),
+		longitude: z.coerce.number(),
 	});
 
 	const {
