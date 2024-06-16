@@ -2,7 +2,6 @@ import type { Pet, Prisma } from '@prisma/client';
 import type { PetsFilterParams, PetsRepository } from '../pets.repository';
 import { randomUUID } from 'node:crypto';
 import type { InMemoryOrgsRepository } from './in-memory-orgs-repository';
-import { makeFakeOrgs } from '@/use-cases/utils/make-fake-org';
 
 export class InMemoryPetsRepository implements PetsRepository {
 	constructor(private orgsRepository: InMemoryOrgsRepository) {}
@@ -31,8 +30,6 @@ export class InMemoryPetsRepository implements PetsRepository {
 	}
 
 	async findAll(params: PetsFilterParams) {
-		makeFakeOrgs(this.orgsRepository);
-
 		const orgsByCityAndState = this.orgsRepository.items
 			.filter((org) => org.city === params.city)
 			.filter((org) => org.state === params.state);
@@ -50,7 +47,6 @@ export class InMemoryPetsRepository implements PetsRepository {
 					: true,
 			);
 
-		console.log(pets);
 		return pets;
 	}
 

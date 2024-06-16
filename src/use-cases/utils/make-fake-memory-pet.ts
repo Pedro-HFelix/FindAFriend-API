@@ -1,7 +1,7 @@
 import type { Pet } from '@prisma/client';
 import { randomUUID } from 'node:crypto';
 
-export async function makeFakePet(org_id: string, items: Pet[]) {
+export async function makeFakePet(org_id: string) {
 	const pet = {
 		id: randomUUID(),
 		name: 'Fake Pet',
@@ -18,5 +18,5 @@ export async function makeFakePet(org_id: string, items: Pet[]) {
 		updated_at: new Date(),
 	};
 
-	items.push(pet);
+	return pet;
 }
