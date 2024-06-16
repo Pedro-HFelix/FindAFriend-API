@@ -1,4 +1,5 @@
 import { PetNotFound } from '@/use-cases/errors/pet-not-found';
+import { makeGetOrgByIdOrgUseCase } from '@/use-cases/factories/orgs/make-get-org-by-id-use-case';
 import { makeFindUniquePetsUseCase } from '@/use-cases/factories/pets/make-find-unique-pet';
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
@@ -14,11 +15,17 @@ export async function findUniquePet(
 	const { id } = routerParamSchema.parse(request.params);
 
 	const getUniquePetUseCase = makeFindUniquePetsUseCase();
+	const findOrgById = makeGetOrgByIdOrgUseCase();
 
 	try {
 		const { pet } = await getUniquePetUseCase.execute(id);
+		const { org } = await findOrgById.execute(pet.org_id);
 
-		return reply.status(200).send(pet);
+		const orgReturn = {
+			name: org?.name,
+			whatsapp: org?.whatsapp,
+		};
+		return reply.status(200).send({ pet, orgReturn });
 	} catch (error) {
 		if (error instanceof PetNotFound) {
 			return reply.status(400).send({ message: error.message });
