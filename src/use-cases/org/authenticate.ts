@@ -2,7 +2,7 @@ import type { OrgsRepository } from '@/repositories/orgs.repository';
 import { compare } from 'bcryptjs';
 import { InvalidCredentialError } from '../errors/invalid-credentials-error';
 
-interface AuthenticateOrgUseCaseRequest {
+export interface AuthenticateOrgUseCaseRequest {
 	email: string;
 	password: string;
 }
