@@ -7,7 +7,7 @@ export async function createOrgController(
 	request: FastifyRequest,
 	reply: FastifyReply,
 ) {
-	const authenticateBodySchema = z.object({
+	const createOrgBodySchema = z.object({
 		name: z.string(),
 		author_name: z.string(),
 		email: z.string(),
@@ -35,7 +35,7 @@ export async function createOrgController(
 		state,
 		street,
 		whatsapp,
-	} = authenticateBodySchema.parse(request.body);
+	} = createOrgBodySchema.parse(request.body);
 
 	try {
 		const authenticateUseCase = makeCreateOrgUseCase();
@@ -58,7 +58,7 @@ export async function createOrgController(
 		return reply.status(201).send();
 	} catch (error) {
 		if (error instanceof OrgAlreadyExists) {
-			return reply.status(401).send({ message: error.message });
+			return reply.status(400).send({ message: error.message });
 		}
 
 		throw error;

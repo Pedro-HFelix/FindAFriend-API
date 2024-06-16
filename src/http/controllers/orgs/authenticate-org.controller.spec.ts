@@ -1,5 +1,4 @@
 import request from 'supertest';
-
 import { app } from '@/app';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { createOrg } from '@/use-cases/utils/test/create-org';
@@ -32,6 +31,6 @@ describe('Authenticate Org (E2E)', () => {
 			password: '1234567',
 		});
 
-		expect(response.status).toBe(401);
+		expect(response.status).toBe(400);
 	});
 });

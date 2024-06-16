@@ -1,8 +1,6 @@
 import request from 'supertest';
-
 import { app } from '@/app';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { createOrg } from '@/use-cases/utils/test/create-org';
 
 describe('Create Org (E2E)', () => {
 	beforeAll(async () => {
@@ -48,6 +46,6 @@ describe('Create Org (E2E)', () => {
 			longitude: -74.006,
 		});
 
-		expect(response.status).toBe(401);
+		expect(response.status).toBe(400);
 	});
 });

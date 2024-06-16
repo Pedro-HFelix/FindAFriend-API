@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client';
 import { randomUUID } from 'node:crypto';
-export async function makeFakeOrgs() {
+export async function makeFakeRepositoryOrgs() {
 	const org = {
 		id: randomUUID(),
 

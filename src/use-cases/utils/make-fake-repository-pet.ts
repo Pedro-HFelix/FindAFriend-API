@@ -1,7 +1,6 @@
-import type { Pet } from '@prisma/client';
 import { randomUUID } from 'node:crypto';
 
-export async function makeFakePet(org_id: string) {
+export async function makeFakeRepositoryPet(org_id: string) {
 	const pet = {
 		id: randomUUID(),
 		name: 'Fake Pet',
