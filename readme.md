@@ -26,22 +26,6 @@
 - **Route:** `GET /pet/:id`
 - **Controller:** `findUniquePet`
 - **Description:** This route is used to find a unique pet by its ID.
-//
-     // Route to create an organization
-     app.post('/orgs', createOrgController);
-
-     // Route to authenticate an organization
-     app.post('/orgs/authenticate', authenticateOrgController);
-
-     // Route to create a pet for an organization
-     app.post('/org/pet/create', { onRequest: [verifyJwt] }, createPetController);
-
-     // Route to find multiple pets
-     app.get('/pets', findManyPetsController);
-
-     // Route to find a unique pet by ID
-     app.get('/pet/:id', findUniquePet);
-
 
 ### Regras da aplicação
 
