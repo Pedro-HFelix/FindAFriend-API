@@ -1,6 +1,6 @@
 import type { OrgsRepository } from '@/repositories/orgs.repository';
 import type { PetsRepository } from '@/repositories/pets.repository';
-import { OrgNotFound } from '../errors/org-not-found';
+import { OrgNotFound } from '@/errors/org-not-found';
 
 interface CreatePetUseCaseRequest {
 	name: string;

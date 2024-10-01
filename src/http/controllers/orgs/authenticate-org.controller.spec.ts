@@ -1,7 +1,7 @@
 import request from 'supertest';
 import { app } from '@/app';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { createOrg } from '@/use-cases/utils/test/create-org';
+import { createOrg } from '@/utils/test/create-org';
 import type { Org } from '@prisma/client';
 
 let org: Org;

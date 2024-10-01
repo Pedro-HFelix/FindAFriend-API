@@ -1,4 +1,4 @@
-import { FindManyPetUseCase } from './../../pets/find-many-pets';
+import { FindManyPetUseCase } from '../../../use-cases/pets/find-many-pets';
 import { PrismaOrgsRepository } from '@/repositories/Prisma/prisma-orgs-repository';
 import { PrismaPetsRepository } from '@/repositories/Prisma/prisma-pets-repository';
 

@@ -4,7 +4,7 @@ import { InMemoryPetsRepository } from '@/repositories/in-memory/in-memory-pets-
 import { InMemoryOrgsRepository } from '@/repositories/in-memory/in-memory-orgs-repository';
 import { randomUUID } from 'node:crypto';
 import { Decimal } from '@prisma/client/runtime/library';
-import { OrgNotFound } from '../errors/org-not-found';
+import { OrgNotFound } from '@/errors/org-not-found';
 
 let sut: CreatePetUseCase;
 let petsRepository: InMemoryPetsRepository;

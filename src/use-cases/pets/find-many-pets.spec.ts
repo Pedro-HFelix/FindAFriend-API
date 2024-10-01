@@ -2,8 +2,8 @@ import { InMemoryOrgsRepository } from '@/repositories/in-memory/in-memory-orgs-
 import { InMemoryPetsRepository } from '@/repositories/in-memory/in-memory-pets-repository';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { FindManyPetUseCase } from './find-many-pets';
-import { makeFakeRepositoryPet } from '../utils/make-fake-repository-pet';
-import { makeFakeRepositoryOrgs } from '../utils/make-fake-repository-org';
+import { makeFakeRepositoryPet } from '@/utils/make-fake-repository-pet';
+import { makeFakeRepositoryOrgs } from '@/utils/make-fake-repository-org';
 
 describe('Search Pets Use Case', () => {
 	let orgsRepository: InMemoryOrgsRepository;

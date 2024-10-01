@@ -1,5 +1,5 @@
 import type { PetsRepository } from '../../repositories/pets.repository';
-import { PetNotFound } from '../errors/pet-not-found';
+import { PetNotFound } from '@/errors/pet-not-found';
 
 export class findPetByIdUseCase {
 	constructor(private petsRepository: PetsRepository) {}

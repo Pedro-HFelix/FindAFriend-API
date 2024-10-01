@@ -1,6 +1,6 @@
-import { PetNotFound } from '@/use-cases/errors/pet-not-found';
-import { makeGetOrgByIdOrgUseCase } from '@/use-cases/factories/orgs/make-get-org-by-id-use-case';
-import { makeFindUniquePetsUseCase } from '@/use-cases/factories/pets/make-find-unique-pet';
+import { PetNotFound } from '@/errors/pet-not-found';
+import { makeGetOrgByIdOrgUseCase } from '@/utils/factories/orgs/make-get-org-by-id-use-case';
+import { makeFindUniquePetsUseCase } from '@/utils/factories/pets/make-find-unique-pet';
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 

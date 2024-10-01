@@ -1,5 +1,5 @@
-import { OrgNotFound } from '@/use-cases/errors/org-not-found';
-import { makeCreatePetUseCase } from '@/use-cases/factories/pets/make-create-pet-use-case';
+import { OrgNotFound } from '@/errors/org-not-found';
+import { makeCreatePetUseCase } from '@/utils/factories/pets/make-create-pet-use-case';
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 

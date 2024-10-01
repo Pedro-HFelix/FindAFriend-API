@@ -4,7 +4,7 @@ import { InMemoryOrgsRepository } from '@/repositories/in-memory/in-memory-orgs-
 import { AuthenticateOrgUseCase } from './authenticate';
 import { randomUUID } from 'node:crypto';
 import { Decimal } from '@prisma/client/runtime/library';
-import { InvalidCredentialError } from '../errors/invalid-credentials-error';
+import { InvalidCredentialError } from '@/errors/invalid-credentials-error';
 
 let sut: AuthenticateOrgUseCase;
 let orgsRepository: InMemoryOrgsRepository;

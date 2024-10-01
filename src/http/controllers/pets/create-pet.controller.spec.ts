@@ -1,8 +1,8 @@
 import request from 'supertest';
 import { app } from '@/app';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { createAndAuthenticateOrg } from '@/use-cases/utils/test/create-and-authenticate-org';
-import { makeFakePet } from '@/use-cases/utils/test/make-fake-pet';
+import { createAndAuthenticateOrg } from '@/utils/test/create-and-authenticate-org';
+import { makeFakePet } from '@/utils/test/make-fake-pet';
 
 let jwtToken: string;
 describe('Create Pet', () => {

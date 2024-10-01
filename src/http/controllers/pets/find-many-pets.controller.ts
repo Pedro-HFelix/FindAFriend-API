@@ -1,4 +1,4 @@
-import { makeFindManyPetsUseCase } from '@/use-cases/factories/pets/make-find-many-pets';
+import { makeFindManyPetsUseCase } from '@/utils/factories/pets/make-find-many-pets';
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 
